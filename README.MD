@@ -11,7 +11,7 @@ This application is made for **BEAMNG Drive** zipped mods in order to find what 
  4. Let it do the job
  5. Open the resultant folder in VSCode, or VSCodium (for zero tracker experience)
  6. Hit CTRL + SHIFT + F to find in all files
- 7. From beamng console (tilde button default), type the missing source texture path and filename
+ 7. From beamng console (tilde button default), type the missing source texture path and filename ![Look at the red errors!](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/20231002130733_1.jpg?raw=true "Errors is Red")
  8. You can then determine the mod name (from folder name) and disable.
 
 # Warnings!
