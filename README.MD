@@ -20,6 +20,11 @@ This application is made for **BEAMNG Drive** zipped mods in order to find what 
  - Every unpack overwrites the files on output folders.
  - Resultant could be BIG! (571 mods zipped, unpacked to 1 GB, YMMV)
 
+# How to download?
+
+Find in releases on right side.
+
+
 # Credits!
 
  - [7Zip team](https://www.7-zip.org/) for unpacking system
