@@ -1,3 +1,4 @@
+
 # Fix beamng No Texture issues easily!
 
 This application is made for **BEAMNG Drive** zipped mods in order to find what causing NO TEXTURE issues. It also can be modified to work on other file types, like jbeam.
@@ -6,17 +7,21 @@ This application is made for **BEAMNG Drive** zipped mods in order to find what 
 # How to?
 
  1. Download from releases
- 2. Double click the batch file
- 3. Pin point to beamng mod folders. DO NOT FORGET QUOTATION MARKS! (example: **"K:\beamng\0.30\mods"**) ![note the quotation marks](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/CMD.png?raw=true "CMD example")
- 4. Let it do the job unpacking....
- 5. Open the resultant folder in [VSCode](https://code.visualstudio.com/), or [VSCodium](https://vscodium.com/) (for zero tracker experience)
- 6. Hit CTRL + SHIFT + F to find in all files
- 7. From beamng console (tilde button default), type the missing source texture path and filename ![Look at the red errors!](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/20231002130733_1.jpg?raw=true "Errors is Red")
- 8. You can then determine the mod name (from folder name) and disable.
+ 2. **Edit the config.txt.**
+	 - On the line that says "bNGmodPath=", pinpoint to your beamng folder . Example: *bNGmodPath="K:\beamng\0.30\mods"*
+ 3. Double click the batch file
+ 4. Select the options. For json, choose 1. For jbeam, choose 2. For quit, choose 3. ![Choose wisely](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/CMD.png?raw=true "CMD example")
+ 5. For json, you have two options: unpack all json (choose 1), or unpack *.materials.json file (choose 2). For cancel, choose C. ![Choose wisely](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/CMD2.png?raw=true "CMD example")
+ 6. After that, you have option to include (if exists) legacy materials.cs file. Choose Y to unpack, choose N to not include. For cancel, choose C. ![Choose wisely](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/CMD3.png?raw=true "CMD example")
+  7. After that, it would show which file to unpack. Press any key ![Any key!](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/CMD4.png?raw=true "CMD example")
+ 8. Let it do the job unpacking....
+ 9. Open the resultant folder in [VSCode](https://code.visualstudio.com/), or [VSCodium](https://vscodium.com/) (for zero tracker experience)
+ 10. Hit CTRL + SHIFT + F to find in all files
+ 11. From beamng console (tilde button default), type the missing source texture path and filename ![Look at the red errors!](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/20231002130733_1.jpg?raw=true "Errors is Red")
+ 12. You can then determine the mod name (from folder name) and disable.
 
 # Warnings!
 
- - At this moment, I do not check for textures.cs file (old textures type).
  - Every unpack overwrites the files on output folders.
  - Resultant could be BIG! (571 mods zipped, unpacked to 1 GB, YMMV)
 
@@ -24,6 +29,11 @@ This application is made for **BEAMNG Drive** zipped mods in order to find what 
 
 Find in releases on right side.
 
+# Configs!
+
+On config.txt, several options are:
+
+ - bNGmodPath: path to beamng mod folder. USE QUOTATION MARKS!
 
 # Credits!
 

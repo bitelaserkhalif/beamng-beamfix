@@ -1,0 +1,1 @@
+bNGmodPath="K:\beamng\0.30\mods"
