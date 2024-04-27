@@ -1,31 +1,79 @@
 @echo off
-Title EXTRACT JSON BEAMNG (FIND NO TEXTURE)
+rem  setlocal enableDelayedExpansion
 
+Title EXTRACT JSON BEAMNG (FIND NO TEXTURE)
+ver > nul
+rem errorlevel reset
+set autodetectver=false
 for /f "delims== tokens=1,2" %%G in (config.txt) do set %%G=%%H
 
+rem check autodetect
+if %autodetectver% equ true (
+	for /f "tokens=3" %%a in ('reg query "HKCU\Software\BeamNG\BeamNG.drive"  /V version  ^|findstr /ri "REG_SZ"') do set version=%%a
+
+	rem parse game version
+
+	for /f "tokens=1,2,3,4 delims=." %%a in ("%version%") do (
+		set MAJOR_VER=%%a
+		set MINOR_VER=%%b
+		set VER_PATH=%%a.%%b
+	)
+
+	for /f "tokens=3" %%a in ('reg query "HKCU\Software\BeamNG\BeamNG.drive"  /V userpath_override  ^|findstr /ri "REG_SZ"') do set userpath_override=%%a
+	if %ERRORLEVEL% neq 0 goto defaultconfig
+	goto customconfig
+	)
+
+
+
+
+goto menu
+rem default value errorlevel is 0. if not 0 = no custom path set up
+rem https://documentation.beamng.com/support/version/
 
 REM Enter the path with quotation marks!
 REM At this moment, only for json files! No support for old material.cs
 REM WARNING, all files unpacked is gonna be overwritten!
 
+:defaultconfig
+cls
+echo Detecting gamepath by registry is ON!
+echo DEFAULT path config detected
+set bNGmodPath=%homedrive%%homepath%\AppData\Local\BeamNG.Drive\%VER_PATH%\mods
+echo Path default is loaded: %bNGmodPath% , game ver %version%
+pause
+goto menu
+
+:customconfig
+cls
+echo Detecting gamepath by registry is ON!
+echo CUSTOM path config detected
+set bNGmodPath=%userpath_override%%VER_PATH%\mods\
+echo Path default is loaded: %bNGmodPath% , game ver %version%
+pause
+goto menu
+
 REM Menu
 :MENU
-CLS
+cls
 ECHO.
 ECHO ...............................................
 ECHO MOD path is : %bNGmodPath%
+ECHO Attempting to autodetect version : %autodetectver%
 ECHO ...............................................
 ECHO Press 1, or 2 to select your task, or 3 to EXIT.
 ECHO ...............................................
 ECHO.
 ECHO 1 - Extract JSONs
 ECHO 2 - Extract JBEAMs
-ECHO 3 - EXIT
+ECHO 3 - Extract LUAs
+ECHO X - EXIT
 ECHO.
-SET /P M=Type 1, 2, or 3 then press ENTER: 
+SET /P M=Type 1, 2, 3, or X then press ENTER: 
 IF /I %M%==1 GOTO JSONU
 IF /I %M%==2 GOTO JBEAM
-IF /I %M%==3 GOTO EOF
+IF /I %M%==3 GOTO LUA
+IF /I %M%==X GOTO EOF
 ECHO Wrong option
 pause
 GOTO MENU
@@ -62,9 +110,23 @@ set TOUNPACK=""
 PAUSE
 goto JSONU
 
+:LUA
+REM set variable for JSON unpack
+ECHO ...............................................
+ECHO Unpack all LUAs
+ECHO ...............................................
+set TOUNPACK="*\*.lua"
+PAUSE
+goto UNPACK
+
+
 :JBEAM
 REM WORKING
+ECHO ...............................................
+ECHO Warning: big size!
+ECHO ...............................................
 set TOUNPACK="*\*.jbeam"
+PAUSE
 goto UNPACK
 
 :UNPACK

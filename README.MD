@@ -1,7 +1,7 @@
 
 # Fix beamng No Texture issues easily!
 
-This application is made for **BEAMNG Drive** zipped mods in order to find what causing NO TEXTURE issues. It also can be modified to work on other file types, like jbeam.
+This application is made for **BEAMNG Drive** zipped mods in order to find what causing NO TEXTURE, JBEAM and also LUA issues.
 
 
 # How to?
@@ -9,9 +9,10 @@ This application is made for **BEAMNG Drive** zipped mods in order to find what 
  1. Download from releases
  2. **Edit the config.txt.**
 	 - On the line that says "bNGmodPath=", pinpoint to your beamng folder . Example: *bNGmodPath="K:\beamng\0.30\mods"*
+	 - This is optional, since version beamfix 0.3 features autodetectver on config. Set it to true to detect game version automatically.![Autodetect](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/CMD5.png?raw=true "CMD autodetect")
  3. Double click the batch file
- 4. Select the options. For json, choose 1. For jbeam, choose 2. For quit, choose 3. ![Choose wisely](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/CMD.png?raw=true "CMD example")
- 5. For json, you have two options: unpack all json (choose 1), or unpack *.materials.json file (choose 2). For cancel, choose C. ![Choose wisely](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/CMD2.png?raw=true "CMD example")
+ 4. Select the options. For json, choose 1. For jbeam, choose 2. For lua, choose 3. To exit hit X ![Choose wisely](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/CMD.png?raw=true "CMD example")
+ 5. For json, you have two options: unpack all json (choose 1), or unpack *.materials.json file (choose 2). For cancel, choose C.  For other type like lua and jbeam, only one is available.![Choose wisely](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/CMD2.png?raw=true "CMD example")
  6. After that, you have option to include (if exists) legacy materials.cs file. Choose Y to unpack, choose N to not include. For cancel, choose C. ![Choose wisely](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/CMD3.png?raw=true "CMD example")
   7. After that, it would show which file to unpack. Press any key ![Any key!](https://github.com/bitelaserkhalif/beamng-beamfix/blob/master/manual_images/CMD4.png?raw=true "CMD example")
  8. Let it do the job unpacking....
