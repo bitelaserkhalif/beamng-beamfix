@@ -10,20 +10,10 @@ for /f "delims== tokens=1,2" %%G in (config.txt) do set %%G=%%H
 rem check autodetect
 if %autodetectver% equ true (
 	for /f "tokens=3" %%a in ('reg query "HKCU\Software\BeamNG\BeamNG.drive"  /V version  ^|findstr /ri "REG_SZ"') do set version=%%a
-
-	rem parse game version
-
-	for /f "tokens=1,2,3,4 delims=." %%a in ("%version%") do (
-		set MAJOR_VER=%%a
-		set MINOR_VER=%%b
-		set VER_PATH=%%a.%%b
-	)
-
 	for /f "tokens=3" %%a in ('reg query "HKCU\Software\BeamNG\BeamNG.drive"  /V userpath_override  ^|findstr /ri "REG_SZ"') do set userpath_override=%%a
 	if %ERRORLEVEL% neq 0 goto defaultconfig
 	goto customconfig
 	)
-
 
 
 
@@ -37,19 +27,21 @@ REM WARNING, all files unpacked is gonna be overwritten!
 
 :defaultconfig
 cls
+	for /f "tokens=1 delims=. " %%a in (%version%) do set VER_PATH=%%a.%%b
 echo Detecting gamepath by registry is ON!
 echo DEFAULT path config detected
 set bNGmodPath=%homedrive%%homepath%\AppData\Local\BeamNG.Drive\%VER_PATH%\mods
-echo Path default is loaded: %bNGmodPath% , game ver %version%
+echo Path default is loaded: %bNGmodPath% , game ver %version%, %VER_PATH%
 pause
 goto menu
 
 :customconfig
 cls
+	for /f "tokens=1-3 delims=. " %%a in ("%version%") do set VER_PATH=%%a.%%b
 echo Detecting gamepath by registry is ON!
 echo CUSTOM path config detected
 set bNGmodPath=%userpath_override%%VER_PATH%\mods\
-echo Path default is loaded: %bNGmodPath% , game ver %version%
+echo Path default is loaded: %bNGmodPath% , game ver %version%, %VER_PATH%
 pause
 goto menu
 

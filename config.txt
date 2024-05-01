@@ -1,2 +1,2 @@
-bNGmodPath="K:\beamng\0.32\mods"
+bNGmodPath="K:\beamng_mod_ruledout\"
 autodetectver=true
